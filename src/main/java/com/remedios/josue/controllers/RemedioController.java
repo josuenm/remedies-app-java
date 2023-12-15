@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -24,27 +26,56 @@ public class RemedioController {
     @Transactional
     public ResponseEntity<Remedio> cadastrar(@RequestBody @Valid CadastroRemedioDTO data) {
         Remedio remedio = remedioRepository.save(new Remedio(data));
-        return new ResponseEntity<Remedio>(remedio, HttpStatus.CREATED);
+
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(remedio.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).body(remedio);
     }
 
     @GetMapping
-    public List<RemedioDTO> listar() {
-        return remedioRepository.findAll().stream().map(RemedioDTO::new).toList();
+    public ResponseEntity<List<RemedioDTO>> listar() {
+        var remedios = remedioRepository.findAll().stream().map(RemedioDTO::new).toList();
+        return ResponseEntity.ok(remedios);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<RemedioDTO> pegarUm(@PathVariable Long id) {
+        var remedio = remedioRepository.getReferenceById(id);
+        return ResponseEntity.ok(new RemedioDTO(remedio));
     }
 
     @PutMapping("/{id}")
     @Transactional
-    public Remedio atualizar(@PathVariable Long id, @RequestBody @Valid AtualizarRemedioDTO data) {
-        Remedio remedioEncontrado = remedioRepository.getReferenceById(id);
-        remedioEncontrado.atualizarDados(data);
-        Remedio remedioSalvo = remedioRepository.save(remedioEncontrado);
-        return remedioSalvo;
+    public ResponseEntity<AtualizarRemedioDTO> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizarRemedioDTO data) {
+        Remedio remedio = remedioRepository.getReferenceById(id);
+        remedio.atualizarDados(data);
+        return ResponseEntity.ok(new AtualizarRemedioDTO(remedio));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<?> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         remedioRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/inativar/{id}")
+    @Transactional
+    public ResponseEntity<Void> inativar(@PathVariable Long id) {
+        Remedio remedio = remedioRepository.getReferenceById(id);
+        remedio.inativarOuAtivar(false);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/ativar/{id}")
+    @Transactional
+    public ResponseEntity<?> ativar(@PathVariable Long id) {
+        Remedio remedio = remedioRepository.getReferenceById(id);
+        remedio.inativarOuAtivar(true);
+        return ResponseEntity.noContent().build();
     }
 }

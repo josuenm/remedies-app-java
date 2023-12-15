@@ -13,7 +13,8 @@ public record RemedioDTO(
         String lote,
         LocalDateTime validade,
         LocalDateTime createdAt,
-        LocalDateTime updatedAt
+        LocalDateTime updatedAt,
+        Boolean ativo
 ) {
     public RemedioDTO(Remedio remedio) {
         this(
@@ -25,7 +26,8 @@ public record RemedioDTO(
                 remedio.getLote(),
                 remedio.getValidade(),
                 remedio.getCreatedAt(),
-                remedio.getUpdatedAt()
+                remedio.getUpdatedAt(),
+                remedio.getAtivo()
         );
     }
 }

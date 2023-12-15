@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 public class Remedio {
 
     public Remedio(CadastroRemedioDTO dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.quantidade = dados.quantidade();
         this.validade = dados.validade();
@@ -48,6 +49,7 @@ public class Remedio {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    private Boolean ativo;
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -74,5 +76,9 @@ public class Remedio {
         if(data.lote() != null) {
             this.lote = data.lote();
         }
+    }
+
+    public void inativarOuAtivar(Boolean data) {
+        this.ativo = data;
     }
 }

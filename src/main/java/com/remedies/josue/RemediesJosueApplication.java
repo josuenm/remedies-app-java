@@ -1,13 +1,13 @@
-package com.remedios.josue;
+package com.remedies.josue;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TudoRemedioApplication {
+public class RemediesJosueApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TudoRemedioApplication.class, args);
+		SpringApplication.run(RemediesJosueApplication.class, args);
 	}
 
 }

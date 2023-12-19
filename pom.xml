@@ -8,10 +8,10 @@
 		<version>3.2.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.remedios.josue</groupId>
-	<artifactId>Tudo-Remedio</artifactId>
+	<groupId>com.remedies.josue</groupId>
+	<artifactId>Remedies-Josue</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Tudo-Remedio</name>
+	<name>Remedies-Josue</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>

@@ -1,9 +1,10 @@
-package com.remedies.josue.remedy;
+package com.remedies.josue.remedy.controllers;
 
-import com.remedies.josue.remedy.dtos.UpdateRemedyDTO;
-import com.remedies.josue.remedy.dtos.InsertRemedyDTO;
-import com.remedies.josue.remedy.models.Remedy;
-import com.remedies.josue.remedy.dtos.RemedyDTO;
+import com.remedies.josue.remedy.InsertRemedyDTO;
+import com.remedies.josue.remedy.entities.Remedy;
+import com.remedies.josue.remedy.RemedyDTO;
+import com.remedies.josue.remedy.UpdateRemedyDTO;
+import com.remedies.josue.remedy.repositories.RemedyRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

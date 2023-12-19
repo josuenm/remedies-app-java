@@ -1,4 +1,4 @@
-package com.remedies.josue.remedy.dtos;
+package com.remedies.josue.remedy;
 
 public enum Route {
     ORAL,

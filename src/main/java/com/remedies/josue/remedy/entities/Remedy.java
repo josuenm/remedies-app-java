@@ -1,9 +1,9 @@
-package com.remedies.josue.remedy.models;
+package com.remedies.josue.remedy.entities;
 
-import com.remedies.josue.remedy.dtos.UpdateRemedyDTO;
-import com.remedies.josue.remedy.dtos.InsertRemedyDTO;
-import com.remedies.josue.remedy.dtos.Route;
-import com.remedies.josue.remedy.dtos.Laboratory;
+import com.remedies.josue.remedy.InsertRemedyDTO;
+import com.remedies.josue.remedy.Laboratory;
+import com.remedies.josue.remedy.Route;
+import com.remedies.josue.remedy.UpdateRemedyDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

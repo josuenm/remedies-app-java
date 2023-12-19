@@ -1,4 +1,4 @@
-package com.remedies.josue.remedy.dtos;
+package com.remedies.josue.remedy;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

@@ -1,4 +1,4 @@
-package com.remedies.josue.remedy;
+package com.remedies.josue.remedy.dtos;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,7 +18,7 @@ public record InsertRemedyDTO(
         @NotNull(message = "Quantity is Required")
         int quantity,
 
-        @Future(message = "Validity date is invalid")
+        @Future(message = "The validity date must be in the future")
         LocalDateTime validity,
 
         @Enumerated(EnumType.STRING)

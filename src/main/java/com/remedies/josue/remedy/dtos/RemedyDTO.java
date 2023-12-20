@@ -1,6 +1,6 @@
 package com.remedies.josue.remedy.dtos;
 
-import com.remedies.josue.remedy.entities.Remedy;
+import com.remedies.josue.entities.Remedy;
 
 import java.time.LocalDateTime;
 

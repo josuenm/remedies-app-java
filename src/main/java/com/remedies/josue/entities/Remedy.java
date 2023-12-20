@@ -1,4 +1,4 @@
-package com.remedies.josue.remedy.entities;
+package com.remedies.josue.entities;
 
 import com.remedies.josue.remedy.dtos.InsertRemedyDTO;
 import com.remedies.josue.remedy.dtos.Laboratory;

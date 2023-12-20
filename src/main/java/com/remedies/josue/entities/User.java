@@ -1,4 +1,4 @@
-package com.remedies.josue.user.entities;
+package com.remedies.josue.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.remedies.josue.user.services;
 
-import com.remedies.josue.user.repositories.UserRepository;
+import com.remedies.josue.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

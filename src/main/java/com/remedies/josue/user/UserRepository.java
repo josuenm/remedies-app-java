@@ -1,6 +1,6 @@
-package com.remedies.josue.user.repositories;
+package com.remedies.josue.user;
 
-import com.remedies.josue.user.entities.User;
+import com.remedies.josue.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 
